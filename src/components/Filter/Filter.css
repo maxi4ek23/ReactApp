@@ -1,0 +1,14 @@
+select {
+    display: block;
+    height: 35px;
+    width: 150px;
+    border: 1px solid rgb(112, 112, 112);
+    font-size: 16px;
+    border-radius: 10px;
+    color: rgb(122, 122, 122);
+}
+
+option {
+    font-size: 17px;
+    font-weight: 500;
+}
