@@ -20,13 +20,13 @@
 }
 
 .header__items {
-    width: 92%;
+    width: 74.7%;
 }
 
 .header__items ul {
     display: flex;
     width: inherit;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 

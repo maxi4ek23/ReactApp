@@ -3,6 +3,9 @@ import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import Logo from '../../images/copy.png';
 import Home from "../Home/Home";
 import React from 'react';
+import Catalog from '../Catalog/Catalog';
+
+
 
 
 function Header() {
@@ -19,23 +22,22 @@ function Header() {
                     <nav className="header__items">
                         <ul>
                             <li className="header__item">
-                                <NavLink  to='/' end className={({ isActive }) => isActive ? selected : undefined}>Home</NavLink>
+                                <NavLink id='first'  to='/' end className={({ isActive }) => isActive ? selected : undefined}>Home</NavLink>
                             </li>
                             <li className="header__item">
-                                <NavLink  to='/catalog' className={({ isActive }) => isActive ? selected : undefined}>Catalog</NavLink>
+                                <NavLink id='second'  to='/catalog' className={({ isActive }) => isActive ? selected : undefined}>Catalog</NavLink>
                             </li>
                             <li className="header__item">
-                                <NavLink  to='/cart' className={({ isActive }) => isActive ? selected : undefined}>Card</NavLink>
+                                <NavLink id='third'  to='/cart' className={({ isActive }) => isActive ? selected : undefined}>Card</NavLink>
                             </li>
                         </ul>
                     </nav>
+
                 </div>
             </header>
             <Routes>
                 <Route path='/' element={<Home />}></Route>
-                <Route>
-                    
-                </Route>
+                <Route path='/catalog' element={<Catalog />}></Route>
                 <Route>
                     
                 </Route>

@@ -1,0 +1,9 @@
+.item__info {
+    padding: 20px 30px;
+    background-color: white;
+}
+
+.item__img {
+    width: 400px;
+    height: 250px;
+}
