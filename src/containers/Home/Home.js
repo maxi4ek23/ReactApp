@@ -5,6 +5,7 @@ import Model1 from '../../images/cottage.jpg';
 import Model2 from '../../images/villa.jpg';
 import Model3 from '../../images/penthouse.jpg';
 import CardItem from '../../components/CardItem/CardItem';
+import { useState } from 'react';
 
 const data = [
     {
@@ -28,10 +29,57 @@ const data = [
             + "eaque qui soluta officia eius illum molestiae fugit."
             + "Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.",
     },
+    {
+        title: "Penthouses",
+        image: Model3,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maiores minus placeat itaque, iusto,"
+            + "eaque qui soluta officia eius illum molestiae fugit."
+            + "Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.",
+    },
+    {
+        title: "Penthouses",
+        image: Model3,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maiores minus placeat itaque, iusto,"
+            + "eaque qui soluta officia eius illum molestiae fugit."
+            + "Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.",
+    },
+    {
+        title: "Penthouses",
+        image: Model3,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maiores minus placeat itaque, iusto,"
+            + "eaque qui soluta officia eius illum molestiae fugit."
+            + "Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.",
+    },
+    {
+        title: "Penthouses",
+        image: Model3,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maiores minus placeat itaque, iusto,"
+            + "eaque qui soluta officia eius illum molestiae fugit."
+            + "Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.",
+    },
 ];
 
 
 function Home() {
+    const [numberItems, setNumberItems] = useState(3);
+    const currentData = data.slice(0, numberItems);
+    const [dataLength] = useState(data.length);
+    const [visible, setVisible] = useState(true);
+    const block = document.querySelector('.home-block-with-card');
+
+    const removeElement = () => {
+        setVisible((prev) => !prev);
+    };
+
+    const showMoreItems = () => {
+        console.log(numberItems)
+        console.log(dataLength)
+        if (numberItems + 3 >= dataLength) {
+            removeElement();
+            block.style.paddingBottom = '120px';
+        }
+        setNumberItems(numberItems + 3);
+    }
     return (
         <main className="home">
             <div className="home__container">
@@ -45,7 +93,7 @@ function Home() {
                     </div>
                 </div>
                 <div className='home-block-with-card'>
-                    {data.map(({ title, image, text }, idx) => (
+                    {currentData.map(({ title, image, text }, idx) => (
                         <CardItem
                             title={title}
                             image={image}
@@ -54,9 +102,11 @@ function Home() {
                         />
                     ))}
                 </div>
-                <div className='home-block-with-button'>
-                    <button className='home__button'>View more</button>
-                </div>
+                {visible && (
+                    <div className='home-block-with-button'>
+                        <button onClick={showMoreItems} className='home__button'>View more</button>
+                    </div>
+                )}
             </div>
         </main>
     )
