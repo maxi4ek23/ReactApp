@@ -21,6 +21,8 @@
 
 .header__items {
     width: 74.7%;
+    display: flex;
+    align-items: center;
 }
 
 .header__items ul {
@@ -28,6 +30,7 @@
     width: inherit;
     justify-content: flex-end;
     align-items: center;
+    margin-bottom: 0;
 }
 
 .header__items ul li {

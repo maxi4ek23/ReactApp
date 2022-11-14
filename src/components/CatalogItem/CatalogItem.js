@@ -1,23 +1,28 @@
 import { Card } from "antd";
 import React from "react";
+import { NavLink } from "react-router-dom";
 import './CatalogItem.css'
 
 
-const CatalogItem = ({ type, text, location, image, price }) => {
+const CatalogItem = ({ id, name, text, image, dailyExpense, animType }) => {
     return (
         <Card
             hoverable
-            style={{ width: 300, borderRadius: "20px" }}
+            style={{ width: 320, borderRadius: "20px", height: 'fit-content' }}
             cover={
                 <img className="item__img" alt="example" src={image} />
             }
         >
             <div className="item__info">
-                <h2 className="item__type">{type}</h2>
+                <h2 className="item__name">{name}</h2>
                 <div className="item__description">{text}</div>
-                <h3 className="item__location">{location}</h3>
-                <p className="item__price">price: ${price}</p>
-                <button className="item__button">Show More</button>
+                <p className="item__price"> <strong>Daily expense:</strong> ${dailyExpense}</p>
+                <p className="item__type"> <strong>Animal type:</strong> {animType}</p>
+                <NavLink to={`/catalog/${id}`}>
+                    <button className="item__button">
+                        Show More
+                    </button>
+                </NavLink>
             </div>
         </Card>
     );

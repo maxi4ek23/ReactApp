@@ -1,58 +1,62 @@
 import React from 'react';
 import Homie from '../../images/homie.jpg';
 import './Home.css'
-import Model1 from '../../images/cottage.jpg';
-import Model2 from '../../images/villa.jpg';
-import Model3 from '../../images/penthouse.jpg';
+import Model1 from '../../images/cats.jpg';
+import Model2 from '../../images/dogs.jpg';
+import Model3 from '../../images/fishes.jpg';
+import Model4 from '../../images/pigs.jpg';
+import Model5 from '../../images/parrots.jpg';
+import Model6 from '../../images/turtles.jpg';
+import Model7 from '../../images/chameleons.jpg';
 import CardItem from '../../components/CardItem/CardItem';
 import { useState } from 'react';
 
 const data = [
     {
-        title: "Cottages",
+        title: "Cats",
         image: Model1,
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maiores minus placeat itaque, iusto,"
             + "eaque qui soluta officia eius illum molestiae fugit."
             + "Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.",
     },
     {
-        title: "Villas",
+        title: "Dogs",
         image: Model2,
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maiores minus placeat itaque, iusto,"
             + "eaque qui soluta officia eius illum molestiae fugit."
             + "Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.",
     },
     {
-        title: "Penthouses",
+        title: "Fishes",
         image: Model3,
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maiores minus placeat itaque, iusto,"
             + "eaque qui soluta officia eius illum molestiae fugit."
             + "Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.",
     },
     {
-        title: "Penthouses",
-        image: Model3,
+        title: "Guinea pigs",
+        image: Model4,
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maiores minus placeat itaque, iusto,"
             + "eaque qui soluta officia eius illum molestiae fugit."
             + "Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.",
     },
     {
-        title: "Penthouses",
-        image: Model3,
+        title: "Parrots",
+        image: Model5,
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maiores minus placeat itaque, iusto,"
             + "eaque qui soluta officia eius illum molestiae fugit."
             + "Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.",
     },
     {
-        title: "Penthouses",
-        image: Model3,
+        title: "Turtles",
+        image: Model6,
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maiores minus placeat itaque, iusto,"
             + "eaque qui soluta officia eius illum molestiae fugit."
             + "Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.",
     },
     {
-        title: "Penthouses",
-        image: Model3,
+        title: "Chameleons",
+        image: Model7,
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maiores minus placeat itaque, iusto,"
             + "eaque qui soluta officia eius illum molestiae fugit."
             + "Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.",
@@ -69,14 +73,12 @@ function Home() {
 
     const removeElement = () => {
         setVisible((prev) => !prev);
+        block.style.paddingBottom = '120px';
     };
 
     const showMoreItems = () => {
-        console.log(numberItems)
-        console.log(dataLength)
         if (numberItems + 3 >= dataLength) {
             removeElement();
-            block.style.paddingBottom = '120px';
         }
         setNumberItems(numberItems + 3);
     }
@@ -86,7 +88,7 @@ function Home() {
                 <div className='home-block-with-img'>
                     <img src={Homie} alt="heading" className="home__img" />
                     <div className="home__info">
-                        <h1 className="home__title">FindHomiie is the best place to buy dwelling!</h1>
+                        <h1 className="home__title">FindHomiie is the best place to find new animal friends!</h1>
                         <div className="home__text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Cumque maiores minus placeat itaque, iusto, eaque qui soluta officia eius illum molestiae fugit.
                             Labore deleniti nihil delectus dolore molestias! Veniam, deserunt.</div>

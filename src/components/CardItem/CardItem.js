@@ -6,7 +6,8 @@ import './CardItem.css'
 const CardItem = ({ title = "Empty", image, text }) => {
     return (
         <Card
-            style={{width: 420, borderRadius:"20px"}}
+            hoverable
+            style={{ width: 420, borderRadius: "20px" }}
             cover={
                 <img className="card-img" alt="card" src={image} />
             }

@@ -1,6 +1,7 @@
 .catalog {
     width: 100%;
     background: linear-gradient(to left, #f9f9f9 0%,#f9f6e3 100%,#fce24e 100%,#fbeb93 100%,#f9f6e3 101%);
+    flex-grow: 1;
 }
 
 .catalog__container {
@@ -16,7 +17,7 @@
 }
 
 .catalog__filters {
-    width: 600px;
+    width: 400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,4 +43,20 @@
     display: flex;
     justify-content: space-between;
     padding-bottom: 150px;
+    height: 600px;
+}
+
+select {
+    display: block;
+    height: 35px;
+    width: 150px;
+    border: 1px solid rgb(112, 112, 112);
+    font-size: 16px;
+    border-radius: 10px;
+    color: rgb(122, 122, 122);
+}
+
+option {
+    font-size: 17px;
+    font-weight: 500;
 }

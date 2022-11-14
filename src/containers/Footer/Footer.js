@@ -28,7 +28,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className='footer__side'>
-                    FindHomiie dwelling platform! You are welcome!
+                    FindHomiie! Find your new family member right here!
                 </div>
             </div>
         </footer>

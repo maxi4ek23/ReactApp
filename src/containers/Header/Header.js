@@ -4,8 +4,7 @@ import Logo from '../../images/copy.png';
 import Home from "../Home/Home";
 import React from 'react';
 import Catalog from '../Catalog/Catalog';
-
-
+import ItemPage from '../ItemPage/ItemPage';
 
 
 function Header() {
@@ -38,6 +37,7 @@ function Header() {
             <Routes>
                 <Route path='/' element={<Home />}></Route>
                 <Route path='/catalog' element={<Catalog />}></Route>
+                <Route path='/catalog/:id' element={<ItemPage />}></Route>
                 <Route>
                     
                 </Route>
