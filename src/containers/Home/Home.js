@@ -1,13 +1,13 @@
 import React from 'react';
-import Homie from '../../images/homie.jpg';
+import Homie from '../../assets//images/homie.jpg';
 import './Home.css'
-import Model1 from '../../images/cats.jpg';
-import Model2 from '../../images/dogs.jpg';
-import Model3 from '../../images/fishes.jpg';
-import Model4 from '../../images/pigs.jpg';
-import Model5 from '../../images/parrots.jpg';
-import Model6 from '../../images/turtles.jpg';
-import Model7 from '../../images/chameleons.jpg';
+import Model1 from '../../assets/images/cats.jpg';
+import Model2 from '../../assets/images/dogs.jpg';
+import Model3 from '../../assets//images/fishes.jpg';
+import Model4 from '../../assets//images/pigs.jpg';
+import Model5 from '../../assets//images/parrots.jpg';
+import Model6 from '../../assets//images/turtles.jpg';
+import Model7 from '../../assets//images/chameleons.jpg';
 import CardItem from '../../components/CardItem/CardItem';
 import { useState } from 'react';
 

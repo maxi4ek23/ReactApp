@@ -4,7 +4,9 @@ import { NavLink } from "react-router-dom";
 import './CatalogItem.css'
 
 
+
 const CatalogItem = ({ id, name, text, image, dailyExpense, animType }) => {
+    
     return (
         <Card
             hoverable

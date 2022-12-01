@@ -3,43 +3,57 @@ import React, { useState, useEffect } from 'react';
 
 import './Catalog.css';
 import CatalogItem from '../../components/CatalogItem/CatalogItem';
-import catalogItems from '../../resourses/data';
+import { getAnimals, getAnimalsFilter, getAnimalsFiltered, getItems } from '../../api/api';
+import Loader from '../../components/Loader/Loader';
 
 const typesAnimals = ['Filter by type', 'All types', 'Mammal', 'Bird', 'Fish', 'Reptile'];
-const expenses = ['Filter by expense', 'Any expense','1-5', '5-20', '20-50', '50-100'];
-let curr;
+const expenses = ['Filter by expense', 'Any expense', '1-5', '5-20', '20-50', '50-100'];
 
 function Catalog() {
-    const [items, setItems] = useState(catalogItems);
+    const [items, setItems] = useState([]);
+    const [searchData, setSearchData] = useState([]);
+    let [curr, setCurr] = useState([]);
     const [value, setValue] = useState('');
     let [filterType, setFilterType] = useState('Filter by type')
     let [filterExpense, setaFilterExpense] = useState('Filter by expense')
+    let [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        getAnimals().then((response) => {
+            setTimeout(setItems, 800, response.data)
+            setSearchData(response.data)
+            setTimeout(setLoading, 800, false)
+        });
+    }, []);
 
     const filter = () => {
-        let filterItems = [...catalogItems];
+        const filter = {};
+        setLoading(true)
         if (filterType !== 'Filter by type' && filterType !== 'All types') {
-            filterItems = filterItems.filter((item) => item.animType.toLowerCase() == filterType.toLowerCase());
-            setItems(filterItems);
-            curr = filterItems
+            //setItems(filterItems);
+            //curr = filterItems
+            console.log(filterType);
+            filter.type = filterType;
         }
         if (filterExpense !== 'Filter by expense' && filterExpense !== 'Any expense') {
-            filterItems = filterItems.filter((item) => item.dailyExpense >= filterExpense.split('-')[0] && item.dailyExpense <= filterExpense.split('-')[1]);
-            setItems(filterItems);
-            curr = filterItems
+            //setItems(filterItems);
+            //curr = filterItems
+            console.log(filterExpense);
+            filter.expense = filterExpense;
         }
-        else {
-            curr = undefined
-            setItems(filterItems)
-        }
-        console.log(curr)
+        getAnimalsFiltered(filter).then((response) => {
+            setItems(response.data)
+            setCurr(response.data)
+            setLoading(false)
+        })
     }
 
     useEffect(() => {
         const searched = (data) => {
             return data.filter((item) => item.name.toLowerCase().includes(value.toLowerCase()))
         }
-        if (curr === undefined) {
-            setItems(searched(catalogItems))
+        if (curr.length == 0) {
+            setItems(searched(searchData))
             console.log('not curr')
         }
         else {
@@ -58,7 +72,7 @@ function Catalog() {
                                 typesAnimals.map((type) => <option key={type} value={type}>{type}</option>)
                             }
                         </select>
-                        
+
                         <select onChange={(e) => setaFilterExpense(e.target.value)} className="select">
                             {
                                 expenses.map((expense) => <option key={expense} value={expense}>{expense}</option>)
@@ -72,15 +86,16 @@ function Catalog() {
                 <div className='catalog__search'>
                     <input onChange={(e) => setValue(e.target.value)} placeholder='Find item' type='text'></input>
                 </div>
-                <div className='catalog-block-with-card'>
-                    {items.map(({ id, name, text, image, dailyExpense, animType }, idx) => (
+                <div on className='catalog-block-with-card'>
+                    {loading && <Loader />}
+                    {items.map(({ id, name, text, image, daily_expense, anim_type }, idx) => (
                         <CatalogItem
                             id={id}
                             name={name}
                             text={text}
                             image={image}
-                            dailyExpense={dailyExpense}
-                            animType={animType}
+                            dailyExpense={daily_expense}
+                            animType={anim_type}
                             key={idx}
                         />
                     ))}

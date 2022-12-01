@@ -1,8 +1,7 @@
-import Model1 from '../images/cats.jpg';
-import Model2 from '../images/dogs.jpg';
-import Model5 from '../images/parrots.jpg';
-import Model6 from '../images/turtles.jpg';
-import Model3 from '../images/fishes.jpg';
+import Model1 from '../assets/images/cats.jpg';
+import Model5 from '../assets/images/parrots.jpg';
+import Model6 from '../assets/images/turtles.jpg';
+import Model3 from '../assets/images/fishes.jpg';
 
 const catalogItems = [
     {

@@ -1,4 +1,4 @@
-import Logo from '../../images/copy.png';
+import Logo from '../../assets/images/copy.png';
 import React from 'react';
 import Icon, {
     TwitterOutlined,

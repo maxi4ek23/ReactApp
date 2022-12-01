@@ -1,10 +1,11 @@
 import './Header.css';
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
-import Logo from '../../images/copy.png';
+import Logo from '../../assets/images/copy.png';
 import Home from "../Home/Home";
 import React from 'react';
 import Catalog from '../Catalog/Catalog';
 import ItemPage from '../ItemPage/ItemPage';
+import Cart from '../Cart/Cart';
 
 
 function Header() {
@@ -38,6 +39,7 @@ function Header() {
                 <Route path='/' element={<Home />}></Route>
                 <Route path='/catalog' element={<Catalog />}></Route>
                 <Route path='/catalog/:id' element={<ItemPage />}></Route>
+                <Route path='/cart' element={<Cart />}></Route>
                 <Route>
                     
                 </Route>
